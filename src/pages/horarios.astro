@@ -5,7 +5,44 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import statusData from '../data/statusTrem.json'; 
 
-// --- LÓGICA DE AVISOS ---
+// --- DADOS DOS COMUNICADOS FIXOS (Solicitado) ---
+const comunicados = [
+    {
+        data: "30 de janeiro de 2026 | 09:00",
+        titulo: "1/02 - Ramal Deodoro ⚠️",
+        texto: "Neste domingo (01/02), das 9h às 19h, trens sentido Japeri e Santa Cruz não realizarão parada nas estações Praça da Bandeira, Riachuelo, Sampaio, Engenho Novo, Méier e Piedade. Clientes interessados nesses locais podem realizar transferência nas estações São Cristóvão, Olímpica de Engenho de Dentro e Quintino.",
+        tipo: "alerta" // define a cor da borda
+    },
+    {
+        data: "28 de janeiro de 2026 | 13:33",
+        titulo: "Embarque com bicicletas no Carnaval",
+        texto: "Nos finais de semana durante o periodo do Carnaval, que abrange dias de Ensaios Técnicos e Megablocos, não será permitido o embarque com bicicletas.",
+        tipo: "info"
+    },
+    {
+        data: "26 de janeiro de 2026 | 13:00",
+        titulo: "22/02 - Interrupção extensão Paracambi",
+        texto: "No domingo (22/02), não haverá circulação de trens na extensão Paracambi, em função de manutenções na via e rede aérea.",
+        tipo: "manutencao"
+    },
+    {
+        data: "06 de fevereiro de 2024 | 15:00",
+        titulo: "Estação Silva Freire fechada",
+        texto: "Devido a vandalismo, a estação Silva Freire encontra-se aberta apenas para desembarque entre 10h e 15h.",
+        tipo: "crime"
+    }
+];
+
+// --- DADOS DA PRÓXIMA MANUTENÇÃO (Destaque Topo) ---
+const manutencaoDestaque = {
+    inicio: "03/02/2026",
+    fim: "07/02/2026",
+    titulo: "Manutenção na Rede Aérea - Ramal Saracuruna",
+    resumo: "Haverá troca de cabos entre as estações Penha e Duque de Caxias. Intervalos podem sofrer alterações de até 15 minutos."
+};
+
+
+// --- LÓGICA DE AVISOS DE NOTÍCIAS (Dinâmico) ---
 const todasNoticias = (await getCollection('noticias')).sort(
   (a, b) => new Date(b.data.data).getTime() - new Date(a.data.data).getTime()
 );
@@ -24,7 +61,7 @@ const statusConfig = {
 const currentStatusState = statusData.estado.toLowerCase() as keyof typeof statusConfig;
 const currentConfig = statusConfig[currentStatusState] || statusConfig['normal'];
 
-// --- DADOS DAS ESTAÇÕES (Ordem: Guapimirim -> Saracuruna) ---
+// --- DADOS DAS ESTAÇÕES ---
 const estacoesData = [
     { nome: "Guapimirim", acessivel: "Acesso por Rampa", integracao: "Ônibus Municipais" },
     { nome: "Parada Bananal", acessivel: "Não Acessível", integracao: "Local" },
@@ -48,7 +85,24 @@ const estacoesData = [
     <Navbar />
 
     <main class="max-w-5xl mx-auto p-6 my-8">
+        
         <section class="bg-navy-dark text-white p-10 rounded-[2.5rem] shadow-2xl mb-12 border-b-8 border-red-base">
+            
+            <div class="bg-white/10 rounded-2xl p-6 mb-10 border border-white/20 flex flex-col md:flex-row gap-6 items-center">
+                <div class="bg-red-base p-3 rounded-xl shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-white">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437" />
+                    </svg>
+                </div>
+                <div class="flex-1">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-red-light mb-1 block">
+                        De {manutencaoDestaque.inicio} a {manutencaoDestaque.fim}
+                    </span>
+                    <h3 class="text-lg font-black uppercase italic tracking-tighter mb-1">{manutencaoDestaque.titulo}</h3>
+                    <p class="text-sm opacity-80 leading-snug">{manutencaoDestaque.resumo}</p>
+                </div>
+            </div>
+
             <header class="mb-10 text-center md:text-left">
                 <h2 class="text-3xl font-black uppercase italic tracking-tighter">Planeje sua Viagem</h2>
                 <p class="text-red-light text-xs font-black uppercase tracking-widest mt-1 italic">Horários oficiais baseados na grade da SuperVia</p>
@@ -128,7 +182,107 @@ const estacoesData = [
             </div>
         </section>
 
-        <section class="grid md:grid-cols-2 gap-8 mb-20 font-sans">
+        <section class="grid lg:grid-cols-3 gap-8 mb-16">
+            
+            <div class="lg:col-span-2 space-y-6">
+                <h3 class="text-xl font-black uppercase italic tracking-tighter text-navy-dark flex items-center gap-2">
+                    <span class="w-2 h-8 bg-red-base rounded-full"></span>
+                    Comunicados Oficiais
+                </h3>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    {comunicados.map(aviso => {
+                        let borderClass = 'border-navy-base';
+                        if (aviso.tipo === 'alerta') borderClass = 'border-yellow-500';
+                        if (aviso.tipo === 'crime') borderClass = 'border-red-base';
+                        if (aviso.tipo === 'manutencao') borderClass = 'border-blue-500';
+
+                        return (
+                            <div class={`bg-white p-6 rounded-2xl border-l-4 ${borderClass} shadow-sm hover:shadow-md transition-shadow`}>
+                                <span class="text-[10px] font-black text-navy-soft uppercase tracking-widest mb-2 block">{aviso.data}</span>
+                                <h4 class="text-navy-dark font-black uppercase text-sm mb-3 leading-tight">{aviso.titulo}</h4>
+                                <p class="text-xs text-navy-base leading-relaxed">{aviso.texto}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                
+                <div class="bg-navy-dark text-white p-8 rounded-3xl shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                        </svg>
+                    </div>
+
+                    <h3 class="text-xl font-black uppercase italic tracking-tighter mb-6 relative z-10">Tarifas</h3>
+                    
+                    <div class="space-y-4 relative z-10">
+                        <div>
+                            <span class="text-[10px] uppercase font-black tracking-widest text-white/50 block mb-1">Passagem Unitária</span>
+                            <div class="flex items-baseline justify-between border-b border-white/10 pb-2">
+                                <span class="text-sm font-bold">Tarifa Cheia</span>
+                                <span class="text-2xl font-black text-red-light">R$ 7,40</span>
+                            </div>
+                        </div>
+                         <div>
+                            <span class="text-[10px] uppercase font-black tracking-widest text-white/50 block mb-1">Bilhete Único (BUI)</span>
+                            <div class="flex items-baseline justify-between border-b border-white/10 pb-2">
+                                <span class="text-sm font-bold">Tarifa Social</span>
+                                <span class="text-2xl font-black text-green-400">R$ 5,00</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase font-black tracking-widest text-white/50 block mb-1">Integração</span>
+                            <div class="flex items-baseline justify-between">
+                                <span class="text-sm font-bold">Trem + Metrô/Ônibus</span>
+                                <span class="text-xl font-black">R$ 9,40</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-ice rounded-3xl p-6">
+                    <h3 class="text-lg font-black uppercase italic tracking-tighter text-navy-dark mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-navy-base">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                        Bike no Trem
+                    </h3>
+                    
+                    <div class="bg-white rounded-xl p-4 mb-4 border border-navy-base/10">
+                        <p class="text-xs font-bold text-navy-dark uppercase tracking-widest mb-1">Horários Permitidos:</p>
+                        <ul class="text-xs text-navy-base space-y-1">
+                            <li>• <strong>Dias úteis:</strong> A partir das 21h</li>
+                            <li>• <strong>Sábados, domingos e feriados:</strong> O dia todo</li>
+                        </ul>
+                    </div>
+
+                    <details class="group bg-white rounded-xl border border-navy-base/10 overflow-hidden cursor-pointer">
+                        <summary class="flex items-center justify-between p-4 font-black text-xs uppercase tracking-widest text-navy-dark hover:bg-gray-50 transition-colors">
+                            Regras de Segurança
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-red-base transition-transform group-open:rotate-180">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </summary>
+                        <div class="p-4 pt-0 text-xs text-navy-soft space-y-2 leading-relaxed bg-gray-50 border-t border-gray-100">
+                            <p>• Procure um funcionário para liberar o acesso pelo portão de serviço.</p>
+                            <p>• Proibido: Bicicleta de carga, motorizada ou elétrica.</p>
+                            <p>• Dentro da estação: Empurre a bicicleta, não pedale.</p>
+                            <p>• Use as escadas fixas. Proibido usar escada rolante ou elevador.</p>
+                            <p>• Na plataforma: Respeite a faixa amarela.</p>
+                            <p>• No trem: Não bloqueie as portas.</p>
+                            <p class="text-[10px] italic mt-2 opacity-70">Grupos acima de 10 pessoas: Agendar com antecedência via 0800 726 9494.</p>
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-8 mb-20 font-sans border-t border-ice pt-12">
             <div class={`bg-ice p-8 rounded-3xl border-l-8 ${currentConfig.border} shadow-md hover:shadow-xl transition-all`}>
                 <div class="flex items-center gap-4 mb-2">
                     <div class="relative flex h-6 w-6">
@@ -142,12 +296,15 @@ const estacoesData = [
                  <p class="text-sm text-navy-soft leading-relaxed font-bold uppercase tracking-widest opacity-60">
                     Última atualização: {statusData.ultimaAtualizacao}
                 </p>
+                <p class="text-xs text-navy-soft mt-4 leading-relaxed">
+                    Acompanhe em tempo real as condições operacionais do Ramal Guapimirim.
+                </p>
             </div>
 
             <div class="bg-ice p-8 rounded-3xl border-l-8 border-red-base shadow-md hover:shadow-xl transition-all relative overflow-hidden">
                 <h4 class="font-black text-red-base uppercase text-sm mb-6 tracking-widest flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.401 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" /></svg>
-                    Alertas e Manutenções
+                    Últimos Alertas (Notícias)
                 </h4>
                 {avisosOperacionais.length > 0 ? (
                     <div class="space-y-4 relative z-10">
@@ -162,7 +319,7 @@ const estacoesData = [
                     </div>
                 ) : (
                     <div class="flex flex-col items-center justify-center h-full py-4 text-center opacity-50">
-                        <p class="text-sm text-navy-soft font-bold italic uppercase tracking-widest">Nenhum alerta operacional no momento.</p>
+                        <p class="text-sm text-navy-soft font-bold italic uppercase tracking-widest">Nenhum alerta de notícias recente.</p>
                     </div>
                 )}
             </div>
@@ -171,29 +328,13 @@ const estacoesData = [
 
     <script define:vars={{ estacoesData }}>
         // --- DADOS REAIS DE TEMPO DE VIAGEM (OFFSETS) ---
-        // Tempo acumulado (em minutos) partindo de Guapimirim (Estação 0)
-        // Baseado na média operacional de 90min para o trajeto completo
         const timeOffsets = {
-            "Guapimirim": 0,
-            "Parada Bananal": 6,
-            "Parada Modelo": 10,
-            "Jardim Guapimirim": 14, // Ref: 03:55 -> 04:09
-            "Parada Ideal": 19,
-            "Citrolândia": 25,
-            "Jororó": 29,
-            "Jardim Nova Marília": 34,
-            "Magé": 42,       // Principal parada intermediária
-            "Iriri": 50,
-            "Santa Guilhermina": 57,
-            "Suruí": 65,
-            "Santa Dalila": 72,
-            "Parque Estrela": 80,
-            "Saracuruna": 90  // Chegada final
+            "Guapimirim": 0, "Parada Bananal": 6, "Parada Modelo": 10, "Jardim Guapimirim": 14,
+            "Parada Ideal": 19, "Citrolândia": 25, "Jororó": 29, "Jardim Nova Marília": 34,
+            "Magé": 42, "Iriri": 50, "Santa Guilhermina": 57, "Suruí": 65,
+            "Santa Dalila": 72, "Parque Estrela": 80, "Saracuruna": 90
         };
 
-        // --- GRADE OFICIAL DE PARTIDAS (Terminais) ---
-        // 'fromGuapi': Trens que SAEM de Guapimirim (Destino Saracuruna)
-        // 'fromSaracuruna': Trens que SAEM de Saracuruna (Destino Guapimirim)
         const baseSchedules = {
             util: {
                 fromGuapi:      ["03:55", "05:45", "10:30", "12:00", "15:20", "16:40", "20:10"],
@@ -209,7 +350,6 @@ const estacoesData = [
             }
         };
 
-        // --- FUNÇÕES AUXILIARES ---
         function addMinutes(timeStr, minutes) {
             const [h, m] = timeStr.split(':').map(Number);
             const date = new Date();
@@ -222,7 +362,6 @@ const estacoesData = [
             return h * 60 + m;
         }
 
-        // --- INICIALIZAÇÃO E LÓGICA ---
         const now = new Date();
         const currentTimeString = now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
         const timeInput = document.getElementById('travel-time');
@@ -240,7 +379,6 @@ const estacoesData = [
             const origin = document.getElementById('origin').value;
             const destination = document.getElementById('destination').value;
             
-            // Verifica direção
             const idxOrigin = estacoesData.findIndex(e => e.nome === origin);
             const idxDest = estacoesData.findIndex(e => e.nome === destination);
 
@@ -249,14 +387,9 @@ const estacoesData = [
                 return;
             }
 
-            // Definir direção e qual array de horário base usar
             const direction = (idxOrigin < idxDest) ? "goingToSaracuruna" : "goingToGuapi";
             
             const currentGrade = baseSchedules[dayType];
-            
-            // Lógica Crucial: 
-            // Se estou indo PARA Saracuruna (Descendo), o trem vem DE Guapi.
-            // Se estou indo PARA Guapi (Subindo), o trem vem DE Saracuruna.
             const baseTrips = (direction === "goingToSaracuruna") 
                 ? currentGrade.fromGuapi 
                 : currentGrade.fromSaracuruna;
@@ -267,35 +400,23 @@ const estacoesData = [
                 let departureAtOrigin;
                 let arrivalAtDest;
 
-                // Cálculo do horário em cada estação baseado no Offset
                 if (direction === "goingToSaracuruna") {
-                    // Trem sai de Guapimirim (Offset 0)
-                    // Hora na Minha Estação = HoraBase + MeuOffset
                     departureAtOrigin = addMinutes(tripBaseTime, timeOffsets[origin]);
                     arrivalAtDest = addMinutes(tripBaseTime, timeOffsets[destination]);
                 } else {
-                    // Trem sai de Saracuruna (Offset 90)
-                    // Hora na Minha Estação = HoraBase + (90 - MeuOffset)
-                    // Ex: Se estou em Magé (42), e trem sai de Saracuruna às 05:40:
-                    // Tempo de viagem de Sara até Magé = 90 - 42 = 48 min.
-                    // Chega em Magé = 05:40 + 48 min.
-                    
-                    const totalTripTime = 90; // Tempo total fixo estimado
+                    const totalTripTime = 90;
                     const invOffsetOrigin = totalTripTime - timeOffsets[origin];
                     const invOffsetDest = totalTripTime - timeOffsets[destination];
-
                     departureAtOrigin = addMinutes(tripBaseTime, invOffsetOrigin);
                     arrivalAtDest = addMinutes(tripBaseTime, invOffsetDest);
                 }
 
-                // Verifica se essa viagem serve (é depois do horário escolhido?)
                 if (timeToMinutes(departureAtOrigin) >= selectedTotalMinutes) {
                     foundTrip = { dep: departureAtOrigin, arr: arrivalAtDest };
-                    break; // Pega o próximo disponível e para
+                    break;
                 }
             }
 
-            // --- EXIBIÇÃO ---
             const resultBox = document.getElementById('result-box');
             const hasTrainDiv = document.getElementById('has-train');
             const noTrainDiv = document.getElementById('no-train');
@@ -312,27 +433,20 @@ const estacoesData = [
                 document.getElementById('dep-time').innerText = foundTrip.dep;
                 document.getElementById('arr-time').innerText = foundTrip.arr;
 
-                // --- LÓGICA DE CONEXÃO (Integração) ---
                 connectionBox.classList.add('hidden');
 
-                // 1. Chegando em Saracuruna -> Vai para Central?
                 if (destination === "Saracuruna") {
                     connectionBox.classList.remove('hidden');
-                    // Simulação: Trem para Central sai a cada 20/30 min
                     const waitTime = (dayType === 'util') ? 15 : 30;
                     const nextTrain = addMinutes(foundTrip.arr, waitTime);
-                    
                     document.getElementById('connection-text').innerHTML = 
                         `Chegada em Saracuruna às <strong>${foundTrip.arr}</strong>.<br>
                          Previsão de trem para Central do Brasil: <strong>${nextTrain}</strong>.`;
                 }
 
-                // 2. Saindo de Saracuruna -> Veio da Central?
                 if (origin === "Saracuruna") {
                     connectionBox.classList.remove('hidden');
-                    // Simulação: Chegar 15 min antes
                     const arrivalTime = addMinutes(foundTrip.dep, -15);
-                    
                     document.getElementById('connection-text').innerHTML = 
                         `Partida do Guapimirim às <strong>${foundTrip.dep}</strong>.<br>
                          Para pegar este trem, seu trem da Central deve chegar até <strong>${arrivalTime}</strong>.`;
