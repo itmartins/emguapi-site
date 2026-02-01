@@ -35,10 +35,10 @@ const comunicados = [
 
 // --- DADOS DA PRÓXIMA MANUTENÇÃO (Destaque Topo) ---
 const manutencaoDestaque = {
-    inicio: "03/02/2026",
-    fim: "07/02/2026",
-    titulo: "Manutenção na Rede Aérea - Ramal Saracuruna",
-    resumo: "Haverá troca de cabos entre as estações Penha e Duque de Caxias. Intervalos podem sofrer alterações de até 15 minutos."
+    inicio: "21/01/2026",
+    fim: 'Indefinido',
+    titulo: "Vila Inhomirim",
+    resumo: "A circulação da extensão Vila Inhomirim ficará somente no trecho entre as estações Piabetá x Saracuruna, em razão das fortes chuvas que atingiram a região Metropolitana do Rio de Janeiro."
 };
 
 
@@ -246,8 +246,11 @@ const estacoesData = [
 
                 <div class="bg-ice rounded-3xl p-6">
                     <h3 class="text-lg font-black uppercase italic tracking-tighter text-navy-dark mb-4 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-navy-base">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-navy-base">
+                                    <circle cx="5.5" cy="17.5" r="3.5" />
+                                    <circle cx="18.5" cy="17.5" r="3.5" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 6h2.5" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 17.5V14l-3-3 4-3 2 3h2" />
                         </svg>
                         Bike no Trem
                     </h3>
@@ -260,11 +263,22 @@ const estacoesData = [
                         </ul>
                     </div>
 
+                    
                     <details class="group bg-white rounded-xl border border-navy-base/10 overflow-hidden cursor-pointer">
                         <summary class="flex items-center justify-between p-4 font-black text-xs uppercase tracking-widest text-navy-dark hover:bg-gray-50 transition-colors">
-                            Regras de Segurança
+                            
+                            <div class="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-navy-base">
+                                    <circle cx="5.5" cy="17.5" r="3.5" />
+                                    <circle cx="18.5" cy="17.5" r="3.5" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 6h2.5" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 17.5V14l-3-3 4-3 2 3h2" />
+                                </svg>
+                                Regras de Segurança
+                            </div>
+
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-red-base transition-transform group-open:rotate-180">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                             </svg>
                         </summary>
                         <div class="p-4 pt-0 text-xs text-navy-soft space-y-2 leading-relaxed bg-gray-50 border-t border-gray-100">
