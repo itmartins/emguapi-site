@@ -95,12 +95,12 @@ const { Content } = await entry.render();
             </div>
         </div>
 
-        <div class="mx-8 md:mx-12 mb-12 py-8 border-t border-dashed border-ice flex flex-col items-center">
-            <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Apoio Local</span>
-        <div class="w-full h-32 bg-ice rounded-2xl overflow-hidden border-2 border-transparent hover:border-red-base transition-all group relative">
-            <img src="/banners/seu-anuncio.jpg" class="w-full h-full object-cover" alt="Anúncio">
-            <a href="/anuncie" class="absolute inset-0 z-10"></a> 
-        </div>
+        <div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
+                <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
+                <div class="w-full h-32 bg-ice rounded-2xl flex items-center justify-center group cursor-pointer hover:bg-white hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
+                     <img src="/banners/seu-anuncio.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt="">
+                    <a href={`https://www.gigamaisfibra.com.br/`} class="absolute inset-0 z-10 flex items-center justify-center text-navy-base font-bold italic opacity-0 group-hover:opacity-100 transition-opacity"></a>
+                </div>
         </div>
 
         <div class="bg-ice/50 p-8 border-t border-ice text-center md:text-left">

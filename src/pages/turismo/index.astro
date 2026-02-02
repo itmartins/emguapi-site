@@ -45,5 +45,22 @@ const pontosTuristicos = await getCollection('turismo');
                 </a>
             ))}
         </div>
+
+<div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
+    <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
+    
+    <div class="w-full h-48 md:h-32 bg-[#000066] rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
+        
+        <img src="/banners/seu-anuncio.webp" 
+             class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
+             alt="Anúncio Giga Mais">
+        
+        <a href="https://www.gigamaisfibra.com.br/" 
+           target="_blank"
+           class="absolute inset-0 z-10">
+           <span class="sr-only">Visitar site do anunciante</span>
+        </a>
+    </div>
+</div>
     </main>
 </Layout>

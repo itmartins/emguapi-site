@@ -4,7 +4,7 @@ resumo: "Competição incentiva o esporte e revela novos talentos locais."
 data: 2026-01-30T13:33:00
 categoria: "Esporte"
 imagem: "/fotos/atletas-jovens.jpg"
-destaque: true 
+destaque: false 
 ---
 
 O ginásio municipal recebeu neste fim de semana um evento esportivo que reuniu jovens atletas de diferentes bairros da cidade. A competição, que contou com modalidades como futsal, vôlei e basquete, teve como objetivo incentivar a prática esportiva e promover a integração entre os participantes.

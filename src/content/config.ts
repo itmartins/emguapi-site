@@ -1,6 +1,7 @@
+// src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
-// Definição única e completa para Notícias
+// 1. Definição para Notícias
 const noticias = defineCollection({
   type: 'content',
   schema: z.object({
@@ -8,14 +9,18 @@ const noticias = defineCollection({
     resumo: z.string(),
     data: z.coerce.date(),
     categoria: z.string(),
-    // O campo autor agora está integrado e tem um valor padrão
+    // O autor tem valor padrão se não for informado
     autor: z.string().default("Equipe emguapi"), 
     imagem: z.string().optional(),
     destaque: z.boolean().optional(),
+    
+    // --- NOVO CAMPO ADICIONADO ---
+    // Aceita uma lista de textos (ex: ["Paraíso", "Anatel"]) e é opcional
+    tags: z.array(z.string()).optional(), 
   }),
 });
 
-// Definição para Turismo
+// 2. Definição para Turismo
 const turismo = defineCollection({
   type: 'content',
   schema: z.object({
@@ -27,7 +32,7 @@ const turismo = defineCollection({
   }),
 });
 
-// NOVA DEFINIÇÃO: Denúncias / Voz da Comunidade
+// 3. Definição para Denúncias / Voz da Comunidade
 const denuncias = defineCollection({
   type: 'content',
   schema: z.object({
@@ -38,9 +43,9 @@ const denuncias = defineCollection({
   }),
 });
 
-// Atualize o export final para incluir a nova coleção
+// Exportação final das coleções
 export const collections = { 
     'noticias': noticias,
     'turismo': turismo,
-    'denuncias': denuncias // <--- Adicione esta linha
+    'denuncias': denuncias
 };

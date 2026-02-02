@@ -37,10 +37,16 @@ const shareUrl = `https://emguapi.com/noticias/${entry.id.replace(/\.md$/, '')}`
 const shareText = encodeURIComponent(entry.data.titulo);
 ---
 
-<Layout title={`${entry.data.titulo} | emguapi.com`}>
+<Layout 
+    title={`${entry.data.titulo} | emguapi.com`}
+    description={entry.data.resumo}
+    image={entry.data.imagem}
+    tags={entry.data.tags}
+>
     <Navbar />
     
     <main class="max-w-4xl mx-auto my-12 bg-white shadow-2xl rounded-[3rem] overflow-hidden border border-ice">
+        
         <header class="relative h-[400px]">
             <img 
                 src={entry.data.imagem || "/fotos/estacao-guapi.jpg"} 
@@ -52,7 +58,7 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 <span class="bg-red-base text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase mb-4 inline-block tracking-widest shadow-xl">
                     {entry.data.categoria}
                 </span>
-                <h1 class="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-none">
+                <h1 class="text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-none mb-4">
                     {entry.data.titulo}
                 </h1>
             </div>
@@ -68,7 +74,8 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 </div>
 
                 <div class="flex gap-3">
-                    <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-full hover:scale-105 transition-all text-[10px] font-black uppercase shadow-md">
+                    <a href={`https://wa.me/?text=${shareText}%20${shareUrl}`} target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-full hover:scale-105 transition-all text-[10px] font-black uppercase shadow-md flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
                         WhatsApp
                     </a>
                     <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`} target="_blank" class="bg-[#1877F2] text-white px-4 py-2 rounded-full hover:scale-105 transition-all text-[10px] font-black uppercase shadow-md">
@@ -79,8 +86,16 @@ const shareText = encodeURIComponent(entry.data.titulo);
 
             <div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
                 <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
-                <div class="w-full h-32 bg-ice rounded-2xl flex items-center justify-center group cursor-pointer hover:bg-white hover:border-red-base border-2 border-transparent transition-all">
-                    <a href="/anuncie" class="text-navy-base font-bold italic opacity-40 group-hover:text-red-base">Anuncie sua marca aqui no emguapi.com</a>
+                
+                <div class="w-full h-48 md:h-32 bg-[#000066] rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
+                    <img src="/banners/seu-anuncio.webp" 
+                        class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
+                        alt="Anúncio Giga Mais">
+                    <a href="https://www.gigamaisfibra.com.br/" 
+                    target="_blank"
+                    class="absolute inset-0 z-10">
+                    <span class="sr-only">Visitar site do anunciante</span>
+                    </a>
                 </div>
             </div>
 
@@ -91,7 +106,10 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 prose-strong:text-navy-dark prose-strong:font-black
                 prose-img:rounded-2xl prose-img:shadow-lg prose-img:w-full
                 
-                /* --- ESTILOS PARA LEGENDAS (Passo 2) --- */
+                /* Estilos para Vídeos (Iframe/YouTube) */
+                [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-2xl [&_iframe]:shadow-lg [&_iframe]:mb-8
+                
+                /* Estilos para Legendas (Figure/Figcaption) */
                 [&_figure]:my-8             
                 [&_figure]:block
                 [&_figcaption]:text-center  
@@ -100,7 +118,6 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 [&_figcaption]:italic       
                 [&_figcaption]:mt-2         
                 [&_figcaption]:font-medium
-                /* ------------------------------------- */
 
                 /* Estilo da Letra Capitular (Drop Cap) */
                 [&>p:first-of-type::first-letter]:float-left
@@ -126,6 +143,20 @@ const shareText = encodeURIComponent(entry.data.titulo);
             ">
                 <Content />
             </div>
+
+            {/* --- BLOCO DE TAGS (ADICIONADO AQUI) --- */}
+            {entry.data.tags && entry.data.tags.length > 0 && (
+                <div class="mt-10 mb-10 pt-8 border-t border-dashed border-ice">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-navy-soft mb-3">Tópicos Relacionados:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        {entry.data.tags.map(tag => (
+                            <span class="bg-gray-100 hover:bg-red-base hover:text-white text-navy-base px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wide transition-colors cursor-default shadow-sm border border-gray-200">
+                                #{tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            )}
             
             <div class="mt-20 pt-12 border-t-2 border-ice">
                 <h3 class="text-xl font-black uppercase tracking-tighter text-navy-dark mb-8 flex items-center gap-3 italic">
@@ -135,7 +166,7 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 
                 <div class="grid md:grid-cols-3 gap-6">
                     {noticiasRelacionadas.map(noticia => (
-                        <div class="transform scale-95 origin-top-left"> 
+                        <div class="transform md:scale-95 md:origin-top-left hover:scale-100 transition-transform duration-300"> 
                             <NoticiaCard 
                                 categoria={noticia.data.categoria}
                                 titulo={noticia.data.titulo}
@@ -149,19 +180,28 @@ const shareText = encodeURIComponent(entry.data.titulo);
                 </div>
             </div>
 
-            <footer class="mt-12 pt-8 border-t border-ice">
+            <footer class="mt-12 pt-8 border-t border-ice flex justify-between items-center">
                 <a href="/noticias" class="text-navy-base font-black uppercase text-xs hover:text-red-base transition-colors">
                     ← Voltar para todas as Notícias
                 </a>
             </footer>
 
-        <div class="mx-8 md:mx-12 mb-12 py-8 border-t border-dashed border-ice flex flex-col items-center">
-            <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
-        <div class="w-full h-32 bg-ice rounded-2xl overflow-hidden border-2 border-transparent hover:border-red-base transition-all group relative">
-            <img src="/banners/seu-anuncio.jpg" class="w-full h-full object-cover" alt="Anúncio">
-            <a href="/anuncie" class="absolute inset-0 z-10"></a> 
-        </div>
-        </div>
+            <div class="mb-12 py-8 border-y border-dashed border-ice flex flex-col items-center">
+                <span class="text-[9px] font-black text-navy-soft uppercase tracking-[0.3em] mb-4">Publicidade</span>
+                
+                <div class="w-full h-48 md:h-32 bg-[#000066] rounded-2xl flex items-center justify-center group cursor-pointer hover:border-red-base border-2 border-transparent transition-all overflow-hidden relative">
+                    
+                    <img src="/banners/seu-anuncio.webp" 
+                        class="w-full h-full object-contain transition-opacity duration-300 opacity-90 group-hover:opacity-100" 
+                        alt="Anúncio Giga Mais">
+                    
+                    <a href="https://www.gigamaisfibra.com.br/" 
+                    target="_blank"
+                    class="absolute inset-0 z-10">
+                    <span class="sr-only">Visitar site do anunciante</span>
+                    </a>
+                </div>
+            </div>
         </article>
     </main>
 </Layout>

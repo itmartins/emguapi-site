@@ -4,7 +4,7 @@ resumo: "Itinerário vai conectar áreas afastadas ao Centro, reduzindo tempo de
 data: 2026-01-12T23:12:00
 categoria: "Mobilidade"
 imagem: "/fotos/onibus-centro.jpg"
-destaque: true
+destaque: false
 ---
 
 Uma nova linha de ônibus urbano deve entrar em operação nas próximas semanas com a proposta de melhorar a mobilidade entre bairros mais afastados e o Centro da cidade. A iniciativa atende a uma demanda antiga da população e busca reduzir o tempo de deslocamento diário de trabalhadores e estudantes.

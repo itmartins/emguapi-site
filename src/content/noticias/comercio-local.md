@@ -4,7 +4,7 @@ resumo: "Eventos culturais e melhorias urbanas impulsionam vendas e atraem consu
 data: 2026-01-28T13:33:00
 categoria: "Economia"
 imagem: "/fotos/festival.jpg"
-destaque: true 
+destaque: false
 ---
 
 O comércio do Centro de Guapimirim tem registrado um aumento significativo no fluxo de consumidores, impulsionado por eventos culturais, feiras temáticas e melhorias recentes na infraestrutura urbana. Comerciantes relatam crescimento nas vendas, especialmente nos finais de semana.

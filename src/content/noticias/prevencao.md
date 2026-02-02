@@ -4,7 +4,7 @@ resumo: "Iniciativas incluem fiscalização, educação ambiental e apoio ao eco
 data: 2026-01-27T15:20:00
 categoria: "Meio Ambiente"
 imagem: "/fotos/ibama.jpg"
-destaque: true  
+destaque: false  
 ---
 
 Guapimirim intensificou, nas últimas semanas, as ações voltadas à preservação ambiental na área da Serra dos Órgãos, território estratégico tanto para a biodiversidade quanto para o turismo ecológico da cidade. As iniciativas fazem parte de um plano integrado que envolve órgãos ambientais, poder público e comunidades locais.
