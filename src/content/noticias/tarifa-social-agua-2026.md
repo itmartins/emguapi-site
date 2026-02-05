@@ -3,7 +3,7 @@ titulo: "Água cara, desconto esquecido: Moradores podem estar pagando até 50% 
 resumo: "Nova regra de obrigatoriedade do cadastro na Tarifa Social vigora desde 1º de janeiro de 2026, mas adesão ainda é baixa. Saiba como a falta de informação está tirando dinheiro da renda familiar e aprenda a solicitar o benefício."
 data: 2026-02-05T10:00:00
 categoria: "Investigação"
-imagem: "/fotos/conta-agua-guapi.jpg"
+imagem: "/fotos/conta-agua-guapi.jpeg"
 destaque: true
 tags: ["Utilidade Pública", "Água", "Fontes da Serra", "Tarifa Social", "Economia", "Denúncia"]
 ---
