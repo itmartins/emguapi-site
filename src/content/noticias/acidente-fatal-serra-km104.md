@@ -5,7 +5,7 @@ data: 2026-02-03T10:30:00
 dataAtualizacao: 2026-02-04T09:00:00
 categoria: "Segurança"
 imagem: "/fotos/acidente-br116-km104-capa.jpeg"
-destaque: true
+destaque: false
 tags: ["Acidente", "BR-116", "Serra", "Guapimirim", "Trânsito", "PRF", "Atualização"]
 ---
 
