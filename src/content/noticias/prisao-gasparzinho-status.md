@@ -3,7 +3,7 @@ titulo: "Fim da linha para 'Gasparzinho': Líder de quadrilha que aterrorizava e
 resumo: "Com três mandados de prisão em aberto, criminoso disparou contra agentes da 67ª DP durante operação. Captura encerra ciclo de roubos violentos a residências de luxo e políticos em Guapimirim."
 data: 2026-02-09T08:00:00
 categoria: "Segurança"
-imagem: "/fotos/prisao-gasparzinho-armas.jpg"
+imagem: "/fotos/cidade-da-policia.webp"
 destaque: true
 tags: ["Polícia Civil", "67ª DP", "Segurança", "Prisão", "Guapimirim", "Crime Organizado"]
 ---
