@@ -80,7 +80,7 @@ Um segundo ocupante, que viajava no banco traseiro, foi resgatado com vida por e
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         
         <div class="relative group cursor-pointer rounded-xl overflow-hidden h-40 md:h-48" onclick="this.querySelector('img').classList.toggle('blur-xl'); this.querySelector('img').classList.toggle('scale-110'); this.querySelector('.overlay-aviso').classList.toggle('opacity-0');">
-            <img src="/fotos/acidente-trem.jpg" alt="Local do acidente em Suruí" class="w-full h-full object-cover blur-xl scale-110 transition-all duration-500 ease-in-out transform">
+            <img src="/fotos/acidente-trem.jpeg" alt="Local do acidente em Suruí" class="w-full h-full object-cover blur-xl scale-110 transition-all duration-500 ease-in-out transform">
             <div class="overlay-aviso absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 text-red-base" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 <span class="text-xs font-bold uppercase tracking-widest">Toque para ver</span>
@@ -88,7 +88,7 @@ Um segundo ocupante, que viajava no banco traseiro, foi resgatado com vida por e
         </div>
         
         <div class="relative group cursor-pointer rounded-xl overflow-hidden h-40 md:h-48" onclick="this.querySelector('img').classList.toggle('blur-xl'); this.querySelector('img').classList.toggle('scale-110'); this.querySelector('.overlay-aviso').classList.toggle('opacity-0');">
-            <img src="/fotos/acidente-surui-2.jpg" alt="Carro prensado na estação" class="w-full h-full object-cover blur-xl scale-110 transition-all duration-500 ease-in-out transform">
+            <img src="/fotos/acidente-surui-2.jpeg" alt="Carro prensado na estação" class="w-full h-full object-cover blur-xl scale-110 transition-all duration-500 ease-in-out transform">
             <div class="overlay-aviso absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 text-red-base" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 <span class="text-xs font-bold uppercase tracking-widest">Toque para ver</span>
@@ -96,7 +96,7 @@ Um segundo ocupante, que viajava no banco traseiro, foi resgatado com vida por e
         </div>
         
         <div class="relative group cursor-pointer rounded-xl overflow-hidden h-40 md:h-48" onclick="this.querySelector('img').classList.toggle('blur-xl'); this.querySelector('img').classList.toggle('scale-110'); this.querySelector('.overlay-aviso').classList.toggle('opacity-0');">
-            <img src="/fotos/acidente-surui-3.jpg" alt="Equipes de resgate no local" class="w-full h-full object-cover blur-xl scale-110 transition-all duration-500 ease-in-out transform">
+            <img src="/fotos/acidente-surui-3.jpeg" alt="Equipes de resgate no local" class="w-full h-full object-cover blur-xl scale-110 transition-all duration-500 ease-in-out transform">
             <div class="overlay-aviso absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 text-red-base" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 <span class="text-xs font-bold uppercase tracking-widest">Toque para ver</span>
@@ -104,7 +104,7 @@ Um segundo ocupante, que viajava no banco traseiro, foi resgatado com vida por e
         </div>
         
         <div class="relative group cursor-pointer rounded-xl overflow-hidden h-40 md:h-48" onclick="this.querySelector('img').classList.toggle('blur-xl'); this.querySelector('img').classList.toggle('scale-110'); this.querySelector('.overlay-aviso').classList.toggle('opacity-0');">
-            <img src="/fotos/acidente-surui-4.jpg" alt="Visão geral da tragédia" class="w-full h-full object-cover blur-xl scale-110 transition-all duration-500 ease-in-out transform">
+            <img src="/fotos/acidente-surui-4.jpeg" alt="Visão geral da tragédia" class="w-full h-full object-cover blur-xl scale-110 transition-all duration-500 ease-in-out transform">
             <div class="overlay-aviso absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 text-red-base" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 <span class="text-xs font-bold uppercase tracking-widest">Toque para ver</span>
@@ -119,6 +119,8 @@ Um segundo ocupante, que viajava no banco traseiro, foi resgatado com vida por e
 A tragédia reacende o debate sobre a segurança ao longo da malha ferroviária na Baixada Fluminense. Moradores afirmam que o local do acidente é um ponto crítico conhecido.
 
 A **SuperVia**, concessionária que administra o ramal, alerta que a travessia da linha férrea deve ser feita exclusivamente em passagens de nível oficiais, que contam com sinalização sonora e visual adequadas. Passagens irregulares oferecem risco altíssimo à vida.
+
+Apesar do alerta, a concessionária tem se omitido de fechar as passagem de nível candestinas, apesar de cobranças e denuncias recorrentes dos moradores da região.
 
 ---
 *Com informações de portais locais e redes sociais.*
