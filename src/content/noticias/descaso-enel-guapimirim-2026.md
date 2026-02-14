@@ -14,7 +14,7 @@ A insatisfação com os serviços prestados pela Enel em Guapimirim continua a g
 
 Um dos principais alvos de críticas é a ineficiência na manutenção da iluminação pública, contrastando com os altos valores cobrados nas faturas. O morador Ezaquiel Siqueira da Conceição expressou sua frustração com a demora injustificável para um serviço simples, relatando o descaso da empresa com as ruas da cidade:
 
-> *"A taxa de iluminação pública mais cara do Estado, chega sempre mas os incompetente leva mais de sessenta dias para trocar uma lâmpada, parece que vou ter que abrir um processo."*
+> *A taxa de iluminação pública mais cara do Estado, chega sempre mas os incompetente leva mais de sessenta dias para trocar uma lâmpada, parece que vou ter que abrir um processo.*
 
 <div class="my-8 flex justify-center">
     <img src="/fotos/conta-de-luz.jpg" alt="Conta de luz Enel" class="rounded-xl shadow-lg max-w-full h-auto">
