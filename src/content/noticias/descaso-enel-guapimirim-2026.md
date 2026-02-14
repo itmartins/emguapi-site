@@ -26,7 +26,7 @@ A sensação de pagar caro por um serviço ineficiente é um sentimento comparti
 
 Se a falta de iluminação nas ruas já gera revolta, a situação é ainda mais dramática para quem fica sem energia dentro de casa. Outra denúncia grave recebida relata o drama de moradores no km 4 da rodovia RJ-122, que enfrentaram um apagão prolongado por um motivo que poderia ser facilmente evitado com manutenção preventiva.
 
-> *"Equipes da @enelbrasil ignoram moradores há 4 dias sem luz no km 4 da RJ-122. Estamos desesperados, ninguém faz nada. Só pra levantar 2 fusíveis, que a falta de poda viva desarmou. Muita falta de respeito dessa empresa com a População."*
+> *Equipes da @enelbrasil ignoram moradores há 4 dias sem luz no km 4 da RJ-122. Estamos desesperados, ninguém faz nada. Só pra levantar 2 fusíveis, que a falta de poda viva desarmou. Muita falta de respeito dessa empresa com a População.*
 
 <div class="my-8 flex justify-center">
     <img src="/fotos/poste.jpg" alt="Poste de energia com problemas" class="rounded-xl shadow-lg max-w-full h-auto">
