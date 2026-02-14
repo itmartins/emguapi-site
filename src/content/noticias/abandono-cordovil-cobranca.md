@@ -4,7 +4,7 @@ resumo: "Após forte repercussão de denúncias sobre lama, falta de médicos e 
 data: 2026-02-03T19:00:00
 categoria: "Voz da Comunidade"
 imagem: "/fotos/cordovil-lama-capa.jpg"
-destaque: true
+destaque: false
 tags: ["Cordovil", "Denúncia", "Infraestrutura", "Política", "Promessas", "Saneamento"]
 ---
 

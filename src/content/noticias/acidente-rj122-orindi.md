@@ -4,7 +4,7 @@ resumo: "A colisão ocorreu na manhã deste domingo (01) no km 11. Segundo teste
 data: 2026-02-01T10:30:00
 categoria: "Segurança"
 imagem: "/fotos/acidente-rj122-orindi-capa.jpg"
-destaque: true
+destaque: false
 tags: ["Acidente", "RJ-122", "Orindi", "Trânsito", "Segurança", "Bombeiros"]
 ---
 
