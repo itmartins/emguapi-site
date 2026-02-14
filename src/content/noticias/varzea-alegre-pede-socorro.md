@@ -4,7 +4,7 @@ resumo: "Reportagem viral mostra esgoto a céu aberto e ruas intransitáveis no 
 data: 2026-02-05T20:45:00
 categoria: "Voz da Comunidade"
 imagem: "/fotos/caos-varzea-alegre.jpg"
-destaque: true
+destaque: false
 tags: ["Várzea Alegre", "Denúncia", "Saneamento", "Prefeitura", "Infraestrutura"]
 ---
 

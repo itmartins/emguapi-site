@@ -4,7 +4,7 @@ resumo: "Terça-feira (03) foi marcada por acidentes distintos na rodovia. No re
 data: 2026-02-03T14:45:00
 categoria: "Cidade Alerta"
 imagem: "/fotos/acidente-retorno-guapi.jpg"
-destaque: true
+destaque: false
 tags: ["BR-116", "Acidente", "Guapimirim", "EcoRioMinas", "Denúncia", "Trânsito"]
 ---
 
