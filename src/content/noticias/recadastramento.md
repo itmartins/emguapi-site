@@ -4,7 +4,7 @@ resumo: "Prazo para estudantes da rede pública e bolsistas já está aberto. At
 data: 2026-02-01T14:00:00
 categoria: "Utilidade Pública"
 imagem: "/fotos/recadastramento.webp"
-destaque: false
+destaque: true
 tags: ["SuperVia", "Educação", "Passe Livre", "Transporte", "Gratuidade"]
 ---
 
