@@ -12,6 +12,7 @@ O domingo (01/02) termina com sinal de alerta ligado em Guapimirim. A Defesa Civ
 
 O Instituto Estadual do Ambiente (Inea) também emitiu um aviso de instabilidade para todo o estado. Guapimirim está na faixa de municípios com previsão de chuva acima de **50 mm/24h**, acompanhada de raios e rajadas de vento. O cenário exige cautela, especialmente em áreas de encosta e margens de rios.
 
+
 ## O drama de quem vive na lama
 
 Enquanto os órgãos oficiais pedem para que a população "busque locais seguros", para os moradores do **KM 03 da Estrada Rio–Friburgo (RJ-122)**, a segurança parece um sonho distante. Um relato enviado ao **emguapi.com** expõe a situação crítica da comunidade, que se sente abandonada pelo poder público municipal.
@@ -42,3 +43,5 @@ Diante da previsão de pancadas isoladas de chuva com raios e ventos para hoje e
 * **Monitoramento:** Fique atento aos alertas oficiais via SMS e redes sociais.
 
 As equipes seguem monitorando a situação climática. Em caso de emergência, entre em contato imediatamente pelos telefones **193 (Bombeiros)** e **199 (Defesa Civil)**.
+
+> **Leia também:** [Guapimirim reforça ações de preservação ambiental na Serra](/noticias/prevencao)
