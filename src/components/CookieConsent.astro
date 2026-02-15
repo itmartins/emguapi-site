@@ -17,7 +17,7 @@
     <div class="flex-1">
       <h4 class="font-black uppercase italic tracking-tighter text-sm mb-2">Valorizamos a sua privacidade</h4>
       <p class="text-[11px] leading-relaxed text-white/70 mb-4">
-        Usamos cookies para melhorar a sua experiência, analisar o tráfego do portal e personalizar anúncios (o que ajuda a manter o  <span class="text-white font-light">em</span>guapi<span class="text-red-base">.com</span> gratuito). 
+        Usamos cookies para melhorar a sua experiência, analisar o tráfego do portal e personalizar anúncios (o que ajuda a manter o <span class="text-white font-light">em</span>guapi<span class="text-red-base">.com</span> gratuito). 
         Ao clicar em "Aceitar Tudo", você concorda com nossos 
         <a href="/termos" class="text-white underline hover:text-red-base transition-colors">Termos de Uso</a> e 
         <a href="/privacidade" class="text-white underline hover:text-red-base transition-colors">Política de Privacidade</a>.
@@ -35,21 +35,35 @@
   </div>
 </div>
 
-<script>
+<script is:inline>
   const banner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('accept-cookies');
   const closeBtn = document.getElementById('close-cookie');
+
+  // Função para avisar o Google que o usuário deu o consentimento
+  function updateGoogleConsent() {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+      console.log('Consentimento GA4 atualizado.');
+    }
+  }
 
   // Verifica se o usuário já tomou uma decisão anteriormente
   if (!localStorage.getItem('cookies-accepted')) {
     setTimeout(() => {
         banner?.classList.remove('hidden');
-        // Pequeno delay para a animação de subida (transform) funcionar
         setTimeout(() => banner?.classList.remove('translate-y-20'), 100);
-    }, 2000); // Aparece 2 segundos após o carregamento da página
+    }, 2000);
+  } else {
+    // Se já aceitou anteriormente, enviamos o sinal para o Google logo no carregamento
+    updateGoogleConsent();
   }
 
-  // Função para fechar o banner com animação
   function hideBanner() {
     banner?.classList.add('translate-y-20');
     setTimeout(() => banner?.classList.add('hidden'), 500);
@@ -57,6 +71,7 @@
 
   acceptBtn?.addEventListener('click', () => {
     localStorage.setItem('cookies-accepted', 'true');
+    updateGoogleConsent(); // Ativa o rastreamento do Google
     hideBanner();
   });
 
