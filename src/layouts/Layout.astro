@@ -30,6 +30,8 @@ const imageURL = new URL(image, siteURL).href;
 <!doctype html>
 <html lang="pt-br">
     <head>
+
+        
         <meta property="fb:app_id" content="1506785261006656" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -49,6 +51,15 @@ const imageURL = new URL(image, siteURL).href;
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={imageURL} />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CLEQ2NDTR"></script>
+        <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-5CLEQ2NDTR');
+        </script>
 
         {tags && tags.map(tag => (
             <meta property="article:tag" content={tag} />
