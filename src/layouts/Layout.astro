@@ -5,8 +5,9 @@ import '../styles/global.css';
 // Análise de acessos ao site (Vercel Analytics)
 import Analytics from '@vercel/analytics/astro'
 
-// 1. IMPORTAR O FOOTER (Obrigatório para ele aparecer)
+// 1. IMPORTAR OS COMPONENTES
 import Footer from '../components/Footer.astro'; 
+import CookieConsent from '../components/CookieConsent.astro'; // Adicionado aqui
 
 interface Props {
     title: string;
@@ -30,8 +31,6 @@ const imageURL = new URL(image, siteURL).href;
 <!doctype html>
 <html lang="pt-br">
     <head>
-
-        
         <meta property="fb:app_id" content="1506785261006656" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -54,11 +53,10 @@ const imageURL = new URL(image, siteURL).href;
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT7DRC4XE3"></script>
         <script is:inline>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-FT7DRC4XE3');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FT7DRC4XE3');
         </script>
 
         {tags && tags.map(tag => (
@@ -77,6 +75,8 @@ const imageURL = new URL(image, siteURL).href;
         </div>
         
         <Footer />
+        
+        <CookieConsent />
         
         <Analytics />
         
